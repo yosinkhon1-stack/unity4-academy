@@ -355,29 +355,21 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             // 2. VIDEO SEEK BAR & DURATION
             _buildProgressBar(),
 
-            // 3. VIDEO ACTION BAR
+                // 3. VIDEO ACTION BAR (SCROLLABLE & RESPONSIVE)
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-              child: Row(
-                children: [
-                  // Left Spacer to help center the play button
-                  const Expanded(child: SizedBox()),
-                  
-                  // CENTER: PLAY/PAUSE
-                  _buildMainPlayButton(),
-                  
-                  // RIGHT: CONTROLS
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        _buildSpeedToggle(),
-                        const SizedBox(width: 8),
-                        _buildQualityToggle(),
-                      ],
-                    ),
-                  ),
-                ],
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                child: Row(
+                  children: [
+                    _buildMainPlayButton(),
+                    const SizedBox(width: 12),
+                    _buildSpeedToggle(),
+                    const SizedBox(width: 12),
+                    _buildQualityToggle(),
+                  ],
+                ),
               ),
             ),
 
