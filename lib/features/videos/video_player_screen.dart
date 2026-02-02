@@ -56,10 +56,24 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
     _initController();
     _startTimer();
-    
+
+    // Ensure we start in portrait
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  }
+
+  @override
+  void dispose() {
+    _stopTimer();
+    _controller.close();
+    // Restore orientation on exit
+    SystemChrome.setPreferredOrientations([
+       DeviceOrientation.portraitUp,
+    ]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    super.dispose();
   }
 
   void _initController() {
@@ -122,24 +136,38 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   void _startTimer() {
     _progressTimer?.cancel();
-    _progressTimer = Timer.periodic(const Duration(milliseconds: 200), (timer) async {
-      if (mounted && !_isDragging) {
-        final time = await _controller.currentTime;
-        if (_currentTime != time) {
-          setState(() {
-            _currentTime = time;
-          });
+    _progressTimer = Timer.periodic(const Duration(milliseconds: 500), (timer) async {
+      if (!mounted) {
+        timer.cancel();
+        return;
+      }
+      
+      if (!_isDragging && _isPlaying) {
+        try {
+          final time = await _controller.currentTime;
+          // Only update if time significantly changed or we need sync
+          if ((time - _currentTime).abs() > 0.5 || _currentTime == 0) {
+             setState(() {
+              _currentTime = time;
+            });
+          } else {
+             // Artificial smooth increment if native update is lagging
+             setState(() {
+               _currentTime += 0.5;
+             });
+          }
 
           // END SPLASH LOGIC
           if (_totalDuration > 0) {
-             // Show if within last 10 seconds
-             bool shouldShowEnd = _currentTime >= (_totalDuration - 10);
+             bool shouldShowEnd = _currentTime >= (_totalDuration - 5); // Reduced threshold
              if (_showEndSplash != shouldShowEnd) {
                setState(() {
                  _showEndSplash = shouldShowEnd;
                });
              }
           }
+        } catch (e) {
+          debugPrint("Timer error: $e");
         }
       }
     });
@@ -221,10 +249,34 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                           ),
                         ),
                         
-                        // HTML NATIVE PROTECTIVE LAYER (Blocks everything on Web)
+                        // HTML NATIVE PROTECTIVE LAYER
                         const Positioned.fill(
                           child: HtmlElementView(
                             viewType: 'video-protector',
+                          ),
+                        ),
+                        
+                        // FULL SCREEN TOGGLE BUTTON (Bottom Right)
+                        Positioned(
+                          bottom: 10,
+                          right: 10,
+                          child: GestureDetector(
+                            onTap: () {
+                              // Enter fullscreen
+                              SystemChrome.setPreferredOrientations([
+                                DeviceOrientation.landscapeRight,
+                                DeviceOrientation.landscapeLeft,
+                              ]);
+                              SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.black54,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: const Icon(Icons.fullscreen, color: Colors.white, size: 28),
+                            ),
                           ),
                         ),
 
