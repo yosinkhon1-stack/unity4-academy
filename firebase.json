@@ -1,0 +1,36 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "unity4-academy",
+                    "appId": "1:792934965462:android:377a39482a8f16649a2977",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "unity4-academy",
+                    "configurations": {
+                        "web": "1:792934965462:web:cfc8056223b64aa79a2977"
+                    }
+                }
+            }
+        }
+    },
+    "hosting": {
+        "site": "unity4-academy",
+        "public": "build/web",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ],
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ]
+    }
+}

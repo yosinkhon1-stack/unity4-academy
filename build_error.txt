@@ -1,0 +1,121 @@
+Compiling lib/main.dart for the Web...                          
+Wasm dry run succeeded. Consider building and testing your application with the `--wasm` flag. See docs for more info: https://docs.flutter.dev/platform-integration/web/wasm
+Use --no-wasm-dry-run to disable these warnings.
+Target dart2js failed: ProcessException: Process exited abnormally with exit code 1:
+lib/features/chat/chat_screen.dart:261:19:
+Error: Can't find ']' to match '['.
+        children: [
+                  ^
+lib/features/schedule/sms_send_screen.dart:113:1:
+Error: Expected a declaration, but got '}'.
+}
+^
+lib/features/chat/chat_screen.dart:415:11:
+Error: Expected an identifier, but got 'if'.
+          if (_replyingTo != null)
+          ^^
+lib/features/chat/chat_screen.dart:415:11:
+Error: Expected ')' before this.
+          if (_replyingTo != null)
+          ^^
+lib/features/chat/chat_screen.dart:256:20:
+Error: Too many positional arguments: 0 allowed, but 1 found.
+    return Scaffold(
+                   ^
+../flutter/packages/flutter/lib/src/material/scaffold.dart:1689:9:
+Info: Found this candidate, but the arguments don't match.
+  const Scaffold({
+        ^^^^^^^^
+lib/features/chat/chat_screen.dart:503:7:
+Error: Expected ';' after this.
+      ),
+      ^
+lib/features/chat/chat_screen.dart:503:8:
+Error: Expected an identifier, but got ','.
+      ),
+       ^
+lib/features/chat/chat_screen.dart:503:8:
+Error: Unexpected token ';'.
+      ),
+       ^
+lib/features/chat/chat_screen.dart:504:5:
+Error: Expected an identifier, but got ')'.
+    );
+    ^
+lib/features/chat/chat_screen.dart:503:8:
+Error: Expected ';' after this.
+      ),
+       ^
+lib/features/chat/chat_screen.dart:504:5:
+Error: Unexpected token ';'.
+    );
+    ^
+lib/features/schedule/sms_send_screen.dart:9:41:
+Error: The method '_SmsSendScreenState' isn't defined for the type 'SmsSendScreen'.
+ - 'SmsSendScreen' is from 'package:unity4_academy/features/schedule/sms_send_screen.dart' ('lib/features/schedule/sms_send_screen.dart').
+  State<SmsSendScreen> createState() => _SmsSendScreenState();
+                                        ^^^^^^^^^^^^^^^^^^^
+lib/features/schedule/sms_send_screen.dart:22:5:
+Error: Expected identifier, but got 'super'.
+    super.initState();
+    ^^^^^
+lib/features/schedule/sms_send_screen.dart:40:5:
+Error: Method not found: 'setState'.
+    setState(() {
+    ^^^^^^^^
+lib/features/schedule/sms_send_screen.dart:53:11:
+Error: Undefined name 'mounted'.
+      if (mounted) {
+          ^^^^^^^
+lib/features/schedule/sms_send_screen.dart:54:30:
+Error: Undefined name 'context'.
+        ScaffoldMessenger.of(context).showSnackBar(
+                             ^^^^^^^
+lib/features/schedule/sms_send_screen.dart:82:41:
+Error: Method not found: 'setState'.
+                      onChanged: (v) => setState(() => _selectedPhone = v),
+                                        ^^^^^^^^
+Error: Compilation failed.
+  Command: /Users/k/flutter/bin/cache/dart-sdk/bin/dart compile js --platform-binaries=/Users/k/flutter/bin/cache/flutter_web_sdk/kernel --invoker=flutter_tool -Ddart.vm.product=true -DFLUTTER_VERSION=3.38.5 -DFLUTTER_CHANNEL=stable -DFLUTTER_GIT_URL=https://github.com/flutter/flutter.git -DFLUTTER_FRAMEWORK_REVISION=f6ff1529fd -DFLUTTER_ENGINE_REVISION=1527ae0ec5 -DFLUTTER_DART_VERSION=3.10.4 -DFLUTTER_WEB_USE_SKIA=true -DFLUTTER_WEB_USE_SKWASM=false -DFLUTTER_WEB_CANVASKIT_URL=https://www.gstatic.com/flutter-canvaskit/1527ae0ec577a4ef50e65f6fefcfc1326707d9bf/ --native-null-assertions --no-source-maps -O4 --minify -o /Users/k/unity4_app1/.dart_tool/flutter_build/bf33b3f4274750c3d36bcf4b96ae3592/app.dill --packages=/Users/k/unity4_app1/.dart_tool/package_config.json --cfe-only /Users/k/unity4_app1/.dart_tool/flutter_build/bf33b3f4274750c3d36bcf4b96ae3592/main.dart
+#0      RunResult.throwException (package:flutter_tools/src/base/process.dart:153:5)
+#1      _DefaultProcessUtils.run (package:flutter_tools/src/base/process.dart:379:19)
+<asynchronous suspension>
+#2      Dart2JSTarget.build (package:flutter_tools/src/build_system/targets/web.dart:207:5)
+<asynchronous suspension>
+#3      _BuildInstance._invokeInternal (package:flutter_tools/src/build_system/build_system.dart:895:9)
+<asynchronous suspension>
+#4      Future.wait.<anonymous closure> (dart:async/future.dart:546:21)
+<asynchronous suspension>
+#5      _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:833:32)
+<asynchronous suspension>
+#6      Future.wait.<anonymous closure> (dart:async/future.dart:546:21)
+<asynchronous suspension>
+#7      _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:833:32)
+<asynchronous suspension>
+#8      FlutterBuildSystem.build (package:flutter_tools/src/build_system/build_system.dart:653:16)
+<asynchronous suspension>
+#9      WebBuilder.buildWeb (package:flutter_tools/src/web/compile.dart:94:34)
+<asynchronous suspension>
+#10     BuildWebCommand.runCommand (package:flutter_tools/src/commands/build_web.dart:296:5)
+<asynchronous suspension>
+#11     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1559:27)
+<asynchronous suspension>
+#12     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#13     CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+<asynchronous suspension>
+#14     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:487:9)
+<asynchronous suspension>
+#15     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#16     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:422:5)
+<asynchronous suspension>
+#17     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:104:11)
+<asynchronous suspension>
+#18     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#19     main (package:flutter_tools/executable.dart:103:3)
+<asynchronous suspension>
+
+Compiling lib/main.dart for the Web...                             28,4s
+Error: Failed to compile application for the Web.

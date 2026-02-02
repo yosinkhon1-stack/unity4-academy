@@ -1,0 +1,6 @@
+
+arb_dir: lib/l10n
+template-arb-file: intl_en.arb
+output_dir: lib/generated
+output_file: l10n.dart
+untranslated_messages_file: lib/l10n/untranslated.json

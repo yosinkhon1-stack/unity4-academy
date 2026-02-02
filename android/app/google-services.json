@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "792934965462",
+    "project_id": "unity4-academy",
+    "storage_bucket": "unity4-academy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792934965462:android:377a39482a8f16649a2977",
+        "android_client_info": {
+          "package_name": "com.example.unity4_academy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "792934965462-1v2sq6bdhih713u9hnto2n255qcnbd2k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.unity4_academy",
+            "certificate_hash": "14edd698cf6badc3afc4faa703b059acc81be3c6"
+          }
+        },
+        {
+          "client_id": "792934965462-rhead3ao8skom4hkihss1o9kckhh394v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6EsN8-eZuT0qPAYnfOdajDFVh5SLHgeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792934965462-rhead3ao8skom4hkihss1o9kckhh394v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "792934965462-k6j8fm375h5eu817icsf5d1afgu7a4q7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "Unity4academy",
+                "app_store_id": "911800558"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
